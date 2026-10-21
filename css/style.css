@@ -1,0 +1,97 @@
+/* ===== Основные стили ===== */
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  font-family: var(--font-family);
+  font-size: var(--font-size-md);
+  color: var(--color-text);
+  background: var(--color-bg);
+}
+
+/* ===== Корпус калькулятора ===== */
+.calculator {
+  width: 100%;
+  max-width: 320px;
+  padding: var(--space-md);
+  background: var(--color-surface);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow);
+}
+
+/* ===== Экран ===== */
+.calculator__display {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  min-height: 90px;
+  padding: var(--space-md) var(--space-sm);
+  overflow: hidden;
+}
+
+.calculator__result {
+  font-size: var(--font-size-xl);
+  font-weight: 300;
+  line-height: 1.1;
+  white-space: nowrap;
+}
+
+/* ===== Сетка кнопок: 4 колонки ===== */
+.calculator__keys {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
+}
+
+/* ===== Базовая кнопка ===== */
+.key {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  border-radius: 50%;
+  color: var(--color-text);
+  background: var(--color-btn);
+  transition: filter 0.15s ease, transform 0.1s ease;
+}
+
+.key:hover {
+  filter: brightness(1.25);
+}
+
+.key:active {
+  transform: scale(1.1);
+}
+
+
+/* Кнопка "0" занимает две ячейки — скругление только слева */
+.key--wide {
+  grid-column: span 2;
+  justify-content: flex-start;
+  padding-left: calc(25% + var(--space-sm));
+  border-radius: 999px;
+  aspect-ratio: auto;
+}
+
+/* ===== Типы кнопок ===== */
+
+/* Числа — тёмно-серые */
+.key--number {
+  background: var(--color-btn);
+}
+
+/* Операторы — оранжевые */
+.key--operator {
+  background: var(--color-accent);
+}
+
+/* Функции (AC, +/−, %) — светло-серые, тёмный текст */
+.key--function {
+  background: var(--color-btn-hover);
+  color: #1f1f1f;
+}
+
